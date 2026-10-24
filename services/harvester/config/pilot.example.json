@@ -1,0 +1,14 @@
+{
+  "name": "replace-with-pilot-area",
+  "bbox": {
+    "south": 0,
+    "west": 0,
+    "north": 0,
+    "east": 0
+  },
+  "max_images": 1000,
+  "request_page_size": 2000,
+  "mapillary_tile_area_degrees_squared": 0.001,
+  "projection_radius_m": 25,
+  "heading_weight": 0.25
+}

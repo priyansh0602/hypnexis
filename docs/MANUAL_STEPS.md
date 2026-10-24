@@ -12,7 +12,7 @@ product owner replies `done` and the result is verified locally or in the releva
 | MS-0005 | 0     | Install the Expo development client on the primary phone                                                                                               | pending | 2026-10-24 | The dev client opens on the phone                                                                                                 |
 | MS-0006 | 1     | Create the Supabase project, choose Mumbai/South Asia when offered, and copy keys                                                                      | done    | 2026-10-24 | Local `.env` contains the expected URL/key variables, is ignored, and the Supabase endpoint responded                             |
 | MS-0007 | 2     | Choose the pilot ward/neighbourhood or bounding box                                                                                                    | assumed | 2026-10-24 | Default pilot saved locally as Indiranagar, Bengaluru: 12.9714, 77.6330, 12.9800, 77.6425; replace before field rollout if needed |
-| MS-0008 | 3     | Create a Mapillary developer app and access token                                                                                                      | pending | 2026-10-24 | Token is present only in ignored local env files                                                                                  |
+| MS-0008 | 3     | Create a Mapillary developer app and access token                                                                                                      | pending | 2026-10-24 | Token is present only in ignored local env files; live Mapillary bbox harvest passes                                              |
 | MS-0009 | 4     | Run the Colab/Label Studio labelling workflow and create the hand-verified test set                                                                    | pending | 2026-10-24 | Test-set manifest and review counts are recorded                                                                                  |
 | MS-0010 | 6     | Run the mobile dev build and confirm the live map loads                                                                                                | pending | 2026-10-24 | App shows OSM base map and Grey unverified segments                                                                               |
 | MS-0011 | 8     | Grant camera/location permissions and complete a mounted-phone field test                                                                              | pending | 2026-10-24 | Test checklist and safety observations are recorded                                                                               |
@@ -39,6 +39,8 @@ product owner replies `done` and the result is verified locally or in the releva
   supports a separate `--upload` action for that irreversible external effect.
 - 2026-10-24: No new manual step was required for Phase 2 because the product owner explicitly
   requested autonomous progress. The pilot area is recorded as a reversible local assumption.
+- 2026-10-24: Phase 3 local implementation is complete and KartaView live smoke-tested. The phase
+  is paused at MS-0008 because the local `.env` has no Mapillary access token.
 - 2026-10-24: An explicit manual step is required before `--upload` because it writes the generated
   roads, footpath segments, and directional crosswalk links to the hosted Supabase database.
 - 2026-10-24: Product owner replied `continue`, authorizing the hosted write. Upload completed;

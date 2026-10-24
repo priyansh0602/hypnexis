@@ -4,20 +4,20 @@
 
 ## Phase status
 
-| Phase | Scope                         | Status                                                                                            |
-| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------- |
-| 0     | Setup and folders             | Complete for approval: scaffold committed; dependency installation and dev client remain deferred |
-| 1     | Supabase backend foundation   | Complete for approval: migration deployed and verification passed                                 |
-| 2     | Pilot graph builder           | Complete for approval: local build, hosted upload, row counts, and checks verified                |
-| 3     | Free imagery harvester        | Not started; Mapillary app/token required                                                         |
-| 4     | Vision models                 | Not started; licences and free compute path required                                              |
-| 5     | State fusion and self-healing | Not started                                                                                       |
-| 6     | Mobile map skeleton           | Not started                                                                                       |
-| 7     | Routing and comparison        | Not started                                                                                       |
-| 8     | Always-on camera copilot      | Not started                                                                                       |
-| 9     | Learning loop                 | Not started                                                                                       |
-| 10    | Hardening                     | Not started                                                                                       |
-| 11    | Deployment                    | Not started                                                                                       |
+| Phase | Scope                         | Status                                                                                                  |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| 0     | Setup and folders             | Complete for approval: scaffold committed; dependency installation and dev client remain deferred       |
+| 1     | Supabase backend foundation   | Complete for approval: migration deployed and verification passed                                       |
+| 2     | Pilot graph builder           | Complete for approval: local build, hosted upload, row counts, and checks verified                      |
+| 3     | Free imagery harvester        | Paused: local harvester and KartaView adapter complete; Mapillary token required for live pilot harvest |
+| 4     | Vision models                 | Not started; licences and free compute path required                                                    |
+| 5     | State fusion and self-healing | Not started                                                                                             |
+| 6     | Mobile map skeleton           | Not started                                                                                             |
+| 7     | Routing and comparison        | Not started                                                                                             |
+| 8     | Always-on camera copilot      | Not started                                                                                             |
+| 9     | Learning loop                 | Not started                                                                                             |
+| 10    | Hardening                     | Not started                                                                                             |
+| 11    | Deployment                    | Not started                                                                                             |
 
 ## Phase 0 acceptance criteria
 
@@ -104,8 +104,26 @@ From the repository root on 2026-10-24:
   matches `stats.json` (211 roads + 8,733 segments + 12,148 links).
 - Hosted upload completed using the server-side key; Supabase row counts matched: 211 roads, 8,733
   footpath segments, 12,148 crosswalk links, and 8,733 initial Grey segment-state rows.
-  Dependency installation and tool versions are recorded above; checks are reported only when they
-  have actually run successfully.
+- Phase 3 harvester foundation implemented with Mapillary bbox-tile/cursor pagination, KartaView
+  bounded center/radius tiling, append-only JSONL resume cache, resumable thumbnail downloads,
+  attribution retention, nearest left/right segment projection, and explicit observation upload.
+- KartaView live smoke check returned 3 pilot images from `api.kartaview.org`; Mapillary live
+  harvesting was not attempted because `MAPILLARY_ACCESS_TOKEN` is empty in the local `.env`.
+- Harvester tests pass: `9 passed`. Root formatting, typecheck, lint, and tests also pass.
+
+## Phase 3 acceptance criteria
+
+- [x] Provider-neutral image metadata model with capture time, heading, coordinates, thumbnails, and
+      attribution.
+- [x] Mapillary bbox queries are tiled and paginated; no one-image-at-a-time pin generation.
+- [x] KartaView adapter uses its bounded public API and filters results back to the pilot bbox.
+- [x] Metadata cache is resumable by provider/image ID.
+- [x] Thumbnail downloads resume with `.part` files and HTTP Range requests.
+- [x] Images project to the nearest left/right segment using distance and heading.
+- [x] Server-side observation upload is explicit and refuses to create implicit false-clear rows.
+- [ ] Mapillary live pilot harvest completed; blocked on `MS-0008`.
+      Dependency installation and tool versions are recorded above; checks are reported only when they
+      have actually run successfully.
 
 ## Decisions and assumptions
 

@@ -51,6 +51,9 @@ data/cache/
 services/**/data/
 services/**/cache/
 services/graph-builder/output/
+services/harvester/.venv/
+services/harvester/cache/
+services/harvester/output/
 
 # Logs
 *.log
