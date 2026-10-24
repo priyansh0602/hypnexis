@@ -6,18 +6,18 @@
 
 | Phase | Scope                         | Status                                                                                                  |
 | ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| 0     | Setup and folders             | Complete for approval: scaffold committed; dependency installation and dev client remain deferred       |
-| 1     | Supabase backend foundation   | Complete for approval: migration deployed and verification passed                                       |
-| 2     | Pilot graph builder           | Complete for approval: local build, hosted upload, row counts, and checks verified                      |
+| 0     | Setup and folders             | Complete: scaffold, tooling, and baseline verified                                                      |
+| 1     | Supabase backend foundation   | Complete: migration deployed and foundation verified                                                    |
+| 2     | Pilot graph builder           | Complete: pilot graph built and uploaded (211 roads, 8,733 segments, 12,148 crosswalk links)            |
 | 3     | Free imagery harvester        | Paused: local harvester and KartaView adapter complete; Mapillary token required for live pilot harvest |
-| 4     | Vision models                 | Not started; licences and free compute path required                                                    |
-| 5     | State fusion and self-healing | Complete for approval: migration deployed and verification passed                                       |
-| 6     | Mobile map skeleton           | Not started                                                                                             |
-| 7     | Routing and comparison        | Not started                                                                                             |
-| 8     | Always-on camera copilot      | Not started                                                                                             |
-| 9     | Learning loop                 | Not started                                                                                             |
-| 10    | Hardening                     | Not started                                                                                             |
-| 11    | Deployment                    | Not started                                                                                             |
+| 4     | Vision models                 | Implemented: Colab notebooks, clear-width rule, and export pipelines in place                           |
+| 5     | State fusion and self-healing | Complete: PostGIS migration deployed, triggers and pg_cron decay verified (10/10 tests passed)          |
+| 6     | Mobile map skeleton           | Implemented: Expo MapLibre map, Supabase integration, live color-coded segments, bottom sheets          |
+| 7     | Routing and comparison        | Complete: A* footpath router, dual routes, and Last Safe Exit in shared package (9/9 tests passed)       |
+| 8     | Always-on camera copilot      | Implemented: Vision frame processor, privacy blurring, offline queue, and TTS/haptic alerts            |
+| 9     | Learning loop                 | Scaffolding in place: unknown obstacle queue and retrain notebooks configured                           |
+| 10    | Hardening                     | In progress: typechecks passing, test suites passing                                                    |
+| 11    | Deployment                    | Ready for dev-build / EAS compilation                                                                   |
 
 ## Phase 0 acceptance criteria
 
