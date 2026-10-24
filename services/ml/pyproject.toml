@@ -1,0 +1,9 @@
+[project]
+name = "accesspath-ml"
+version = "0.1.0"
+description = "Accessible-footpath labelling, training, evaluation, and export workflows."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

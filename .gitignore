@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+coverage/
+.expo/
+.expo-shared/
+android/
+ios/
+*.apk
+*.aab
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Supabase local state
+supabase/.temp/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local data and downloaded imagery
+data/raw/
+data/processed/
+data/cache/
+services/**/data/
+services/**/cache/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*

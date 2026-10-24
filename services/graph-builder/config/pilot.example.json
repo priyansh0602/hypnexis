@@ -1,0 +1,10 @@
+{
+  "name": "replace-with-pilot-area",
+  "bbox": {
+    "south": 0,
+    "west": 0,
+    "north": 0,
+    "east": 0
+  },
+  "segment_length_metres": 10
+}

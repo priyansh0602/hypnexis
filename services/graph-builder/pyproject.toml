@@ -1,0 +1,9 @@
+[project]
+name = "accesspath-graph-builder"
+version = "0.1.0"
+description = "Build left/right footpath segments from OSM road data."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

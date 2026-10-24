@@ -1,0 +1,12 @@
+node_modules
+.pnpm-store
+dist
+build
+coverage
+.expo
+android
+ios
+supabase/.temp
+data
+services/**/data
+services/**/cache
