@@ -4,20 +4,20 @@
 
 ## Phase status
 
-| Phase | Scope                         | Status                                                                                                  |
-| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| 0     | Setup and folders             | Complete for approval: scaffold committed; dependency installation and dev client remain deferred       |
-| 1     | Supabase backend foundation   | Complete for approval: migration deployed and verification passed                                       |
-| 2     | Pilot graph builder           | Paused: implementation and local build verified; hosted Supabase upload requires explicit authorization |
-| 3     | Free imagery harvester        | Not started; Mapillary app/token required                                                               |
-| 4     | Vision models                 | Not started; licences and free compute path required                                                    |
-| 5     | State fusion and self-healing | Not started                                                                                             |
-| 6     | Mobile map skeleton           | Not started                                                                                             |
-| 7     | Routing and comparison        | Not started                                                                                             |
-| 8     | Always-on camera copilot      | Not started                                                                                             |
-| 9     | Learning loop                 | Not started                                                                                             |
-| 10    | Hardening                     | Not started                                                                                             |
-| 11    | Deployment                    | Not started                                                                                             |
+| Phase | Scope                         | Status                                                                                            |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------- |
+| 0     | Setup and folders             | Complete for approval: scaffold committed; dependency installation and dev client remain deferred |
+| 1     | Supabase backend foundation   | Complete for approval: migration deployed and verification passed                                 |
+| 2     | Pilot graph builder           | Complete for approval: local build, hosted upload, row counts, and checks verified                |
+| 3     | Free imagery harvester        | Not started; Mapillary app/token required                                                         |
+| 4     | Vision models                 | Not started; licences and free compute path required                                              |
+| 5     | State fusion and self-healing | Not started                                                                                       |
+| 6     | Mobile map skeleton           | Not started                                                                                       |
+| 7     | Routing and comparison        | Not started                                                                                       |
+| 8     | Always-on camera copilot      | Not started                                                                                       |
+| 9     | Learning loop                 | Not started                                                                                       |
+| 10    | Hardening                     | Not started                                                                                       |
+| 11    | Deployment                    | Not started                                                                                       |
 
 ## Phase 0 acceptance criteria
 
@@ -48,6 +48,18 @@
 - [x] Obstacle taxonomy seeded with nine required codes.
 - [x] Private `thumbnails` storage bucket created with MIME and size limits.
 - [x] `node supabase/scripts/verify-foundation.mjs` passed against the deployed project.
+
+## Phase 2 acceptance criteria
+
+- [x] Reusable pilot configuration with a bounded area and ~10 m segment target.
+- [x] OSM road graph download with official map API and free Overpass fallback.
+- [x] Deterministic left/right footpath offsets and stable segment IDs.
+- [x] New segments uploaded as Grey/unverified with automatic segment-state rows.
+- [x] Directional inferred crosswalk links generated at nearby intersections.
+- [x] Idempotent Supabase upload path using only the server-side key.
+- [x] Local GeoJSON preview and build statistics generated.
+- [x] Hosted row counts match the local build.
+- [x] Core graph-builder tests pass.
 
 ## Checks run
 
@@ -90,6 +102,8 @@ From the repository root on 2026-10-24:
   3.9.10. `pnpm run format:check`, `pnpm run typecheck`, `pnpm run lint`, and `pnpm test` all pass.
 - Graph-builder tests pass: `9 passed`; the generated GeoJSON preview contains 21,092 features and
   matches `stats.json` (211 roads + 8,733 segments + 12,148 links).
+- Hosted upload completed using the server-side key; Supabase row counts matched: 211 roads, 8,733
+  footpath segments, 12,148 crosswalk links, and 8,733 initial Grey segment-state rows.
   Dependency installation and tool versions are recorded above; checks are reported only when they
   have actually run successfully.
 
