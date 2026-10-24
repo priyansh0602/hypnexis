@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "AccessPath",
+    "slug": "accesspath",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0f172a",
+      "resizeMode": "contain"
+    },
+    "scheme": "accesspath",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.accesspath.mobile"
+    },
+    "android": {
+      "package": "com.accesspath.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#0f172a"
+      },
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+    },
+    "plugins": ["@maplibre/maplibre-react-native", "expo-dev-client"]
+  }
+}

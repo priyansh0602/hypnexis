@@ -1,0 +1,17 @@
+# AccessPath ML & Edge Computer Vision Requirements
+# Zero-budget constraint: Apache 2.0 / MIT / BSD licenses only. Avoid AGPL (e.g. Ultralytics YOLO).
+numpy>=1.24.0
+scipy>=1.10.0
+pydantic>=2.0.0
+shapely>=2.0.0
+pillow>=9.5.0
+pytest>=7.0.0
+
+# Optional dependencies for Colab training & auto-labelling pipeline
+# torch>=2.0.0
+# torchvision>=0.15.0
+# transformers>=4.35.0
+# accelerate>=0.24.0
+# timm>=0.9.0
+# onnx>=1.14.0
+# tensorflow>=2.15.0
