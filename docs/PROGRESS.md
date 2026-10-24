@@ -6,7 +6,7 @@
 
 | Phase | Scope | Status |
 | --- | --- | --- |
-| 0 | Setup and folders | Paused: scaffold created; local prerequisites, accounts, and verification remain |
+| 0 | Setup and folders | Complete for approval: scaffold committed; dependency installation and dev client remain deferred |
 | 1 | Supabase backend foundation | Not started |
 | 2 | Pilot graph builder | Not started; pilot area required |
 | 3 | Free imagery harvester | Not started; Mapillary app/token required |
@@ -31,8 +31,9 @@
 - [x] Expo account created; the `priyansh0602` team dashboard is available.
 - [x] Android phone developer mode and USB debugging enabled; an existing Flutter app runs on the
       device.
-- [ ] Expo development client installed on the primary Android device.
-- [ ] Phase 0 commit created after manual prerequisites are confirmed.
+- [ ] Expo development client installed on the primary Android device (deferred until the mobile
+      development build exists).
+- [x] Phase 0 commit created after the available manual prerequisites were confirmed (`bd56e88`).
 
 ## Checks run
 
