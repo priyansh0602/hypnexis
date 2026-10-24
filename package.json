@@ -14,7 +14,10 @@
     "typecheck": "tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p apps/mobile/tsconfig.json",
     "test": "node --test tests/*.test.mjs && node --experimental-strip-types --test packages/shared/test/*.test.ts",
     "supabase:verify": "node supabase/scripts/verify-foundation.mjs",
-    "supabase:test-fusion": "node supabase/scripts/test-fusion.mjs"
+    "supabase:test-fusion": "node supabase/scripts/test-fusion.mjs",
+    "demo:seed": "node supabase/scripts/seed-demo-observations.mjs --seed",
+    "demo:reseed": "node supabase/scripts/seed-demo-observations.mjs --reseed",
+    "demo:clear": "node supabase/scripts/seed-demo-observations.mjs --clear"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",

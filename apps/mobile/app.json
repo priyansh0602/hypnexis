@@ -4,9 +4,9 @@
     "slug": "accesspath",
     "version": "0.1.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
     "splash": {
-      "backgroundColor": "#0f172a",
+      "backgroundColor": "#0A1236",
       "resizeMode": "contain"
     },
     "scheme": "accesspath",
@@ -17,10 +17,9 @@
     "android": {
       "package": "com.accesspath.mobile",
       "adaptiveIcon": {
-        "backgroundColor": "#0f172a"
+        "backgroundColor": "#0A1236"
       },
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
-    },
-    "plugins": ["@maplibre/maplibre-react-native", "expo-dev-client"]
+      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+    }
   }
 }

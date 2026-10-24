@@ -20,6 +20,7 @@ product owner replies `done` and the result is verified locally or in the releva
 | MS-0013 | 1     | Apply the Phase 1 SQL migration in Supabase SQL Editor and run the foundation verification                                                             | done    | 2026-10-24 | `node supabase/scripts/verify-foundation.mjs` passed: extensions, RLS, seed, bucket, and public read checks all passed            |
 | MS-0014 | 2     | Explicitly authorize uploading the generated pilot graph to Supabase                                                                                   | done    | 2026-10-24 | Product owner said `continue`; CLI upload completed and hosted row counts matched the local build                                 |
 | MS-0015 | 5     | Apply the Phase 5 SQL migration in Supabase SQL Editor and run the state fusion verification                                                           | done    | 2026-10-25 | `node supabase/scripts/test-fusion.mjs` passed all 10 tests: decay, trust, 2-confirm clear, stale, triggers, and cron             |
+| MS-0016 | 6     | Apply `202610250002_segments_geojson_and_demo.sql` in Supabase SQL Editor                                                                              | done    | 2026-10-25 | `segments_geojson` RPC responds to anon key with FeatureCollection and 'demo' enum is accepted                                   |
 
 ## Latest manual-step notes
 

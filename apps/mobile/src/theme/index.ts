@@ -22,10 +22,10 @@ export interface ThemeColors {
 }
 
 export const STATUS_COLORS: Record<FootpathStatus, string> = {
-  green: '#10b981', // Emerald 500: Clear & rollable
-  yellow: '#f59e0b', // Amber 500: Rough / uneven / narrow
-  red: '#ef4444', // Red 500: Blocked / steps / impassable
-  grey: '#94a3b8', // Slate 400: Unverified / no evidence
+  green: '#22C55E', // Green: Clear & rollable
+  yellow: '#FACC15', // Yellow: Rough / uneven / narrow
+  red: '#EF4444', // Red: Blocked / steps / impassable
+  grey: '#9CA3AF', // Grey: Unverified / no evidence
 };
 
 export const STATUS_LABELS: Record<FootpathStatus, string> = {
@@ -119,22 +119,22 @@ export const OBSTACLE_METADATA: Record<
 
 export const darkTheme: ThemeColors = {
   isDark: true,
-  background: '#090d16',
-  surface: '#111827',
-  surfaceSubtle: '#1f293d',
-  surfaceElevated: '#1e293b',
-  border: '#334155',
-  borderStrong: '#475569',
-  textPrimary: '#f8fafc',
-  textSecondary: '#cbd5e1',
-  textMuted: '#94a3b8',
-  accent: '#38bdf8',
-  accentContrast: '#0f172a',
-  mapStyle: 'https://tiles.openfreemap.org/styles/dark',
+  background: '#0A1236',
+  surface: '#1F2A5C',
+  surfaceSubtle: '#12234F',
+  surfaceElevated: '#1F2A5C',
+  border: '#2A3B7A',
+  borderStrong: '#4DA3FF',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#9CC4FF',
+  textMuted: '#9CC4FF',
+  accent: '#1E5BFF',
+  accentContrast: '#FFFFFF',
+  mapStyle: 'https://tiles.openfreemap.org/styles/liberty',
   statusColors: STATUS_COLORS,
   statusLabels: STATUS_LABELS,
   statusDescriptions: STATUS_DESCRIPTIONS,
-  overlay: 'rgba(0, 0, 0, 0.75)',
+  overlay: 'rgba(10, 18, 54, 0.85)',
   shadow: '#000000',
 };
 

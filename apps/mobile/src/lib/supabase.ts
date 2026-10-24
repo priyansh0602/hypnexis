@@ -8,15 +8,17 @@ import Constants from 'expo-constants';
  * - Only EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY are permitted.
  * - Under no circumstances is the server-side service_role key included or accessed here.
  */
-const supabaseUrl =
+const supabaseUrl = (
   process.env.EXPO_PUBLIC_SUPABASE_URL ||
   (Constants.expoConfig?.extra?.supabaseUrl as string | undefined) ||
-  '';
+  ''
+).trim();
 
-const supabaseAnonKey =
+const supabaseAnonKey = (
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ||
   (Constants.expoConfig?.extra?.supabaseAnonKey as string | undefined) ||
-  '';
+  ''
+).trim();
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 

@@ -242,7 +242,12 @@ const SAMPLE_PILOT_SEGMENTS: FootpathSegmentFeature[] = [
  * Fetches footpath segments from Supabase backend.
  * Merges with segment_state for live status and obstacles.
  */
-export async function fetchFootpathSegments(): Promise<FootpathSegmentCollection> {
+export async function fetchFootpathSegments(bbox?: {
+  west: number;
+  south: number;
+  east: number;
+  north: number;
+}): Promise<FootpathSegmentCollection> {
   if (!isSupabaseConfigured) {
     return {
       type: 'FeatureCollection',
@@ -250,7 +255,32 @@ export async function fetchFootpathSegments(): Promise<FootpathSegmentCollection
     };
   }
 
+  const bounds = bbox || PILOT_BBOX;
+
   try {
+    // 1. High performance Viewport GeoJSON RPC with 3-second timeout protection
+    const rpcPromise = supabase.rpc('segments_geojson', {
+      min_lng: bounds.west,
+      min_lat: bounds.south,
+      max_lng: bounds.east,
+      max_lat: bounds.north,
+      max_features: 1500,
+    });
+
+    const timeoutPromise = new Promise<{ data: null; error: Error }>((resolve) =>
+      setTimeout(() => resolve({ data: null, error: new Error('Network timeout') }), 3000),
+    );
+
+    const { data: rpcData, error: rpcError } = (await Promise.race([
+      rpcPromise,
+      timeoutPromise,
+    ])) as any;
+
+    if (!rpcError && rpcData && rpcData.features && rpcData.features.length > 0) {
+      return rpcData as FootpathSegmentCollection;
+    }
+
+    // 2. Direct table fallback if RPC unavailable
     const { data: segmentRows, error: segmentError } = await supabase
       .from('footpath_segments')
       .select(
