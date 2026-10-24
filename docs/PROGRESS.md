@@ -11,7 +11,7 @@
 | 2     | Pilot graph builder           | Complete for approval: local build, hosted upload, row counts, and checks verified                      |
 | 3     | Free imagery harvester        | Paused: local harvester and KartaView adapter complete; Mapillary token required for live pilot harvest |
 | 4     | Vision models                 | Not started; licences and free compute path required                                                    |
-| 5     | State fusion and self-healing | Not started                                                                                             |
+| 5     | State fusion and self-healing | Complete for approval: migration deployed and verification passed                                       |
 | 6     | Mobile map skeleton           | Not started                                                                                             |
 | 7     | Routing and comparison        | Not started                                                                                             |
 | 8     | Always-on camera copilot      | Not started                                                                                             |
@@ -124,6 +124,20 @@ From the repository root on 2026-10-24:
 - [ ] Mapillary live pilot harvest completed; blocked on `MS-0008`.
       Dependency installation and tool versions are recorded above; checks are reported only when they
       have actually run successfully.
+
+## Phase 5 acceptance criteria
+
+- [x] Obstacle decay math implemented (hours for vehicles/carts, days for rubble/garbage, zero decay for permanent obstacles).
+- [x] Observation weighting with confidence and reporter trust.
+- [x] All-clear observations reduce active obstacle confidence.
+- [x] Permanent obstacles require >= 2 independent confirmations before status changes from Red to Green.
+- [x] Stale segments (>90 days without observations) revert to Grey/unverified.
+- [x] `compute_segment_state(text/uuid)` live calculation function implemented.
+- [x] `batch_recompute_dirty_segments()` scheduled runner and dirty queue implemented.
+- [x] `observations` table trigger immediately recomputes affected segment state.
+- [x] pg_cron hourly schedule `'hourly-obstacle-decay'` configured.
+- [x] Phase 5 migration executed in Supabase SQL Editor (`MS-0015`).
+- [x] `node supabase/scripts/test-fusion.mjs` verification passing against hosted instance.
 
 ## Decisions and assumptions
 

@@ -19,6 +19,7 @@ product owner replies `done` and the result is verified locally or in the releva
 | MS-0012 | 11    | Configure EAS free-tier build and choose direct APK/internal distribution                                                                              | pending | 2026-10-24 | Android artifact is built and its checksum is recorded                                                                            |
 | MS-0013 | 1     | Apply the Phase 1 SQL migration in Supabase SQL Editor and run the foundation verification                                                             | done    | 2026-10-24 | `node supabase/scripts/verify-foundation.mjs` passed: extensions, RLS, seed, bucket, and public read checks all passed            |
 | MS-0014 | 2     | Explicitly authorize uploading the generated pilot graph to Supabase                                                                                   | done    | 2026-10-24 | Product owner said `continue`; CLI upload completed and hosted row counts matched the local build                                 |
+| MS-0015 | 5     | Apply the Phase 5 SQL migration in Supabase SQL Editor and run the state fusion verification                                                           | done    | 2026-10-25 | `node supabase/scripts/test-fusion.mjs` passed all 10 tests: decay, trust, 2-confirm clear, stale, triggers, and cron             |
 
 ## Latest manual-step notes
 
@@ -46,6 +47,9 @@ product owner replies `done` and the result is verified locally or in the releva
 - 2026-10-24: Product owner replied `continue`, authorizing the hosted write. Upload completed;
   REST `Content-Range` counts are roads 211, footpath segments 8,733, crosswalk links 12,148,
   and segment state 8,733.
+- 2026-10-25: Product owner applied Phase 5 migration in Supabase SQL Editor.
+  `node supabase/scripts/test-fusion.mjs` executed and passed all 10 verification test suites
+  against the live Supabase database (MS-0015).
 
 ## Rules
 
