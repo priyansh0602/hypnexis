@@ -32,3 +32,18 @@ by this Phase 0 document.
   credentials in local or hosted secret stores only.
 - Never put `SUPABASE_SERVICE_ROLE_KEY` in `apps/mobile`, an Expo public variable, screenshots,
   issues, or committed documentation.
+
+## Phase 1 Supabase verification
+
+After creating the Supabase project, enabling PostGIS and pg_cron, and applying the migration:
+
+1. Open **Database → Tables** in the Supabase dashboard.
+2. Confirm these tables exist: `roads`, `footpath_segments`, `crosswalk_links`, `obstacle_types`,
+   `observations`, `segment_state`, `profiles`, `unknown_obstacle_queue`, and `model_versions`.
+3. Open **Storage** and confirm the private `thumbnails` bucket exists.
+4. Run `node supabase/scripts/verify-foundation.mjs` from the repository root.
+5. Confirm it reports PostGIS, pg_cron, RLS, the nine obstacle codes, the private thumbnail bucket,
+   and public segment-state read access as passing.
+
+The verification command reads `.env` locally and never prints key values. It must not be run with
+secrets pasted into the command line.
