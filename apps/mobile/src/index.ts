@@ -1,5 +1,10 @@
-/**
- * Phase 0/2 placeholder so the workspace TypeScript check has a real mobile input.
- * The Expo application entry point is implemented in Phase 6.
- */
-export const ACCESSPATH_MOBILE_PLACEHOLDER = true;
+export { default as App } from './App';
+export * from './types';
+export * from './theme';
+export * from './lib/supabase';
+export * from './services/segmentService';
+export * from './components/MapLibreView';
+export * from './components/SegmentBottomSheet';
+export * from './components/AttributionBar';
+export * from './components/DisclaimerModal';
+export * from './components/ProfileModal';
