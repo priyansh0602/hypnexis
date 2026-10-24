@@ -25,7 +25,10 @@ function parseEnv(text) {
     if (separator <= 0) continue;
 
     const key = line.slice(0, separator).trim();
-    const value = line.slice(separator + 1).trim().replace(/^['"]|['"]$/g, '');
+    const value = line
+      .slice(separator + 1)
+      .trim()
+      .replace(/^['"]|['"]$/g, '');
     values[key] = value;
   }
 
@@ -54,7 +57,9 @@ async function request(baseUrl, path, key, options = {}) {
 
   const body = await response.text();
   if (!response.ok) {
-    throw new Error(`${options.method ?? 'GET'} ${path} returned HTTP ${response.status}: ${body.slice(0, 300)}`);
+    throw new Error(
+      `${options.method ?? 'GET'} ${path} returned HTTP ${response.status}: ${body.slice(0, 300)}`,
+    );
   }
 
   return body ? JSON.parse(body) : null;
@@ -86,7 +91,9 @@ const obstacleCodes = obstacleRows.map((row) => row.code).sort();
 const expectedCodes = [...REQUIRED_OBSTACLE_CODES].sort();
 
 if (JSON.stringify(obstacleCodes) !== JSON.stringify(expectedCodes)) {
-  throw new Error(`Obstacle seed mismatch: expected ${expectedCodes.join(', ')}, got ${obstacleCodes.join(', ')}`);
+  throw new Error(
+    `Obstacle seed mismatch: expected ${expectedCodes.join(', ')}, got ${obstacleCodes.join(', ')}`,
+  );
 }
 
 await request(baseUrl, '/storage/v1/bucket/thumbnails', serverKey);

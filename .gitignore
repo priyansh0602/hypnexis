@@ -50,6 +50,7 @@ data/processed/
 data/cache/
 services/**/data/
 services/**/cache/
+services/graph-builder/output/
 
 # Logs
 *.log

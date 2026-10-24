@@ -11,8 +11,13 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "typecheck": "pnpm --filter @accesspath/shared typecheck && pnpm --filter @accesspath/mobile typecheck",
+    "typecheck": "tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p apps/mobile/tsconfig.json",
     "test": "node --test tests/*.test.mjs",
     "supabase:verify": "node supabase/scripts/verify-foundation.mjs"
+  },
+  "devDependencies": {
+    "eslint": "10.13.0",
+    "prettier": "3.9.10",
+    "typescript": "7.0.2"
   }
 }

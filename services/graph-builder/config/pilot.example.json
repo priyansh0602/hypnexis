@@ -6,5 +6,7 @@
     "north": 0,
     "east": 0
   },
-  "segment_length_metres": 10
+  "segment_length_metres": 10,
+  "footpath_offset_metres": 1.5,
+  "road_filter": "[\"highway\"~\"primary|secondary|tertiary|unclassified|residential|living_street|service|pedestrian\"]"
 }

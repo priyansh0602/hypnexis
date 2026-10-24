@@ -1,0 +1,15 @@
+{
+  "name": "indiranagar-100ft-road-pilot",
+  "city": "Bengaluru",
+  "state": "Karnataka",
+  "country": "India",
+  "bbox": {
+    "south": 12.9714,
+    "west": 77.633,
+    "north": 12.98,
+    "east": 77.6425
+  },
+  "segment_length_metres": 10,
+  "footpath_offset_metres": 1.5,
+  "road_filter": "[\"highway\"~\"primary|secondary|tertiary|unclassified|residential|living_street|service|pedestrian\"]"
+}

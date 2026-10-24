@@ -21,7 +21,7 @@ export default [
       'no-constant-condition': 'warn',
       'no-debugger': 'error',
       'no-duplicate-imports': 'error',
-      'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
 ];
