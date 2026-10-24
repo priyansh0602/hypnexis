@@ -7,8 +7,8 @@
     "east": 77.6425
   },
   "max_images": 1000,
-  "request_page_size": 2000,
-  "mapillary_tile_area_degrees_squared": 0.001,
+  "request_page_size": 100,
+  "mapillary_tile_area_degrees_squared": 0.00001,
   "projection_radius_m": 25,
   "heading_weight": 0.25
 }

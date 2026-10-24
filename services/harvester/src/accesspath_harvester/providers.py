@@ -110,8 +110,8 @@ class MapillaryClient:
         self,
         bbox: BoundingBox,
         max_images: int,
-        page_size: int = 2000,
-        tile_area_degrees_squared: float = 0.001,
+        page_size: int = 100,
+        tile_area_degrees_squared: float = 0.00001,
     ) -> Iterator[ImageRecord]:
         seen: set[str] = set()
         for tile in self._tiles(bbox, tile_area_degrees_squared):

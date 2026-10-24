@@ -55,6 +55,7 @@ def test_mapillary_queries_bbox_and_cursor_without_pin_requests() -> None:
         BoundingBox(south=12.0, west=77.0, north=12.01, east=77.01),
         max_images=5,
         page_size=2,
+        tile_area_degrees_squared=0.001,
     ))
 
     assert [image.image_id for image in images] == ['m1']

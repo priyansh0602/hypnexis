@@ -38,8 +38,8 @@ class HarvesterConfig:
     name: str
     bbox: BoundingBox
     max_images: int = 1000
-    request_page_size: int = 2000
-    mapillary_tile_area_degrees_squared: float = 0.001
+    request_page_size: int = 100
+    mapillary_tile_area_degrees_squared: float = 0.00001
     projection_radius_m: float = 25.0
     heading_weight: float = 0.25
 
@@ -72,9 +72,9 @@ class HarvesterConfig:
                 east=float(bbox_raw['east']),
             ),
             max_images=int(raw.get('max_images', 1000)),
-            request_page_size=int(raw.get('request_page_size', 2000)),
+            request_page_size=int(raw.get('request_page_size', 100)),
             mapillary_tile_area_degrees_squared=float(
-                raw.get('mapillary_tile_area_degrees_squared', 0.001)
+                raw.get('mapillary_tile_area_degrees_squared', 0.00001)
             ),
             projection_radius_m=float(raw.get('projection_radius_m', 25.0)),
             heading_weight=float(raw.get('heading_weight', 0.25)),

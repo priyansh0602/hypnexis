@@ -57,6 +57,19 @@ class ProjectedObservation:
     image: ImageRecord
     projection: Projection
 
+    def to_json(self) -> dict[str, Any]:
+        """Serialize local projection metadata without inventing an observation state."""
+        return {
+            'image': self.image.to_json(),
+            'projection': {
+                'segment_id': self.projection.segment_id,
+                'side': self.projection.side,
+                'distance_m': self.projection.distance_m,
+                'heading_delta_degrees': self.projection.heading_delta_degrees,
+                'confidence': self.projection.confidence,
+            },
+        }
+
     def to_supabase_row(self) -> dict[str, Any]:
         obstacle_type = self.image.metadata.get('obstacle_type')
         is_clear = bool(self.image.metadata.get('is_clear', False))

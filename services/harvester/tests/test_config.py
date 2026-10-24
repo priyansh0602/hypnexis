@@ -12,7 +12,7 @@ def test_harvester_config_validates_bbox_and_limits() -> None:
     })
 
     assert config.bbox.as_mapillary() == '77.5,12.9,77.6,13.0'
-    assert config.request_page_size == 2000
+    assert config.request_page_size == 100
 
 
 def test_harvester_config_rejects_invalid_page_size() -> None:

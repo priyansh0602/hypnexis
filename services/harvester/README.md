@@ -40,5 +40,8 @@ Add `--download` to cache provider thumbnails locally. Add `--upload-observation
 project owner explicitly authorizes a hosted database write. The server-side Supabase key is read
 from `.env` and is never placed in a mobile build.
 
+Without `--upload-observations`, the projected-observations JSONL file contains local image and
+projection metadata only; it does not infer an obstacle or clear state from raw imagery.
+
 The metadata cache is append-only JSONL and resumes by provider/image ID. Thumbnail downloads use
 `.part` files and HTTP Range requests so interrupted runs can continue.

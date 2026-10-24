@@ -138,7 +138,10 @@ def main(argv: list[str] | None = None) -> int:
     )
     _write_jsonl(
         args.output_dir / f'{args.provider}-projected-observations.jsonl',
-        [observation.to_supabase_row() for observation in projected],
+        [
+            observation.to_supabase_row() if args.upload_observations else observation.to_json()
+            for observation in projected
+        ],
     )
     if args.upload_observations:
         uploaded = upload_observations(projected)

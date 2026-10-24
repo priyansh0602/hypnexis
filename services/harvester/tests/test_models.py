@@ -34,6 +34,13 @@ def test_raw_imagery_cannot_become_a_false_clear_observation() -> None:
         _projected({}).to_supabase_row()
 
 
+def test_local_projection_serialization_does_not_invent_state() -> None:
+    payload = _projected({}).to_json()
+
+    assert payload['projection']['segment_id'] == 'segment-1'
+    assert 'is_clear' not in payload['image']['metadata']
+
+
 def test_explicit_clear_observation_is_allowed() -> None:
     row = _projected({'is_clear': True}).to_supabase_row()
 
